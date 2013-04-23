@@ -9,22 +9,14 @@
 #import <UIKit/UIKit.h>
 #include "bass.h"
 
-#define SPECWIDTH 320	// display width
-#define SPECHEIGHT 127	// height (changing requires palette adjustments too)
-#define BANDS 56//28
-
-typedef struct {
-	BYTE rgbRed,rgbGreen,rgbBlue,Aplha;
-} RGBQUAD;
+#define FFT_LENGTH 1024
+#define DEFAULT_BANDS 28
 
 @interface Grafico : UIView {
-
-    float fft[1024];
-    
-    CGContextRef specdc;
-    DWORD specbuf[SPECWIDTH*SPECHEIGHT];
-    DWORD palette[256];
+    float fft[FFT_LENGTH];
 }
+@property (nonatomic) int bands;
+@property (nonatomic, strong) UIColor *barColor;
 
 - (void)updateFFT:(float*)freq;
 

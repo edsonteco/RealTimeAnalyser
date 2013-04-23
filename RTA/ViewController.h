@@ -12,14 +12,8 @@
 
 @interface ViewController : UIViewController {
     DWORD chan;
-    
-    CGContextRef specdc;
-    DWORD specbuf[SPECWIDTH*SPECHEIGHT];
-    DWORD palette[256];
-    
-    Grafico *grafico;
 }
-
+@property (strong, nonatomic) Grafico *grafico;
 @property (strong, nonatomic) NSTimer *timerUpdate;
 
 @end

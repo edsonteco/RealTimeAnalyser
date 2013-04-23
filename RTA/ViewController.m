@@ -40,8 +40,11 @@ BOOL CALLBACK DuffRecording(HRECORD handle, const void *buffer, DWORD length, vo
         BASS_RecordFree();
     }
     
-    grafico = [[Grafico alloc] initWithFrame:CGRectMake(0, 0, SPECWIDTH, SPECHEIGHT)];
-    [self.view addSubview:grafico];
+    self.grafico = [[Grafico alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    self.grafico.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    self.grafico.bands = 56;
+    self.grafico.barColor = [UIColor blueColor];
+    [self.view addSubview:self.grafico];
     
     self.timerUpdate = [NSTimer scheduledTimerWithTimeInterval:1.0f/40 target:self selector:@selector(update:) userInfo:nil repeats:YES];
 }
@@ -53,10 +56,10 @@ BOOL CALLBACK DuffRecording(HRECORD handle, const void *buffer, DWORD length, vo
 
 - (void)update:(NSTimer*)timer
 {
-    float fft[1024]; // get the FFT data
+    float fft[1024];
     BASS_ChannelGetData(chan, fft, BASS_DATA_FFT2048);
-    [grafico updateFFT:fft];
-    [grafico setNeedsDisplay];
+    [self.grafico updateFFT:fft];
+    [self.grafico setNeedsDisplay];
 }
 
 @end

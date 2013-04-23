@@ -14,14 +14,16 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        
+        self.backgroundColor = [UIColor clearColor];
+        self.bands = DEFAULT_BANDS;
+        self.barColor = [UIColor colorWithRed:0.0 green:1.0 blue:1.0 alpha:1.0];
     }
     return self;
 }
 
 - (void)updateFFT:(float*)freq
 {
-    for (int i=0; i<1024; i++) {
+    for (int i=0; i<FFT_LENGTH; i++) {
         fft[i] = freq[i];
     }
 }
@@ -32,38 +34,28 @@
     int b0 = 0, b1;
     float peak;
     
-    for (banda=0; banda<BANDS; banda++) {
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSetLineWidth(context, (self.frame.size.width/self.bands)-((self.frame.size.width/self.bands)*0.15));
+    [self.barColor setStroke];
+    
+    for (banda=0; banda<self.bands; banda++) {
         
         peak = 0;
-        b1 = pow(2, banda*10.0/(BANDS-1));
-        if (b1 > 1023) b1 = 1023;
+        b1 = pow(2, banda*10.0/(self.bands-1));
+        if (b1 > (FFT_LENGTH-1)) b1 = (FFT_LENGTH-1);
         if (b1 <= b0) b1 = b0 + 1;
-        for (; b0<b1; b0++) {
-            if (peak < fft[1+b0]) {
-                peak = fft[1+b0];   
-            }
-        }
+        for (; b0<b1; b0++) 
+            if (peak < fft[1+b0]) peak = fft[1+b0];
         
-        y = sqrt(peak) * 3 * SPECHEIGHT-4; // scale it (sqrt to make low values more visible)
-        if (y > SPECHEIGHT) y = SPECHEIGHT; // cap it
+        y = sqrt(peak) * 3 * self.frame.size.height-4; // scale it (sqrt to make low values more visible)
+        if (y > self.frame.size.height) y = self.frame.size.height; // cap it
         
-        x = x + SPECWIDTH/BANDS;
-        
-        CGContextRef context = UIGraphicsGetCurrentContext();
-        // linha preta - limpar barras anteriores
-        CGContextSetLineWidth(context, SPECWIDTH/BANDS);
-        CGContextSetRGBStrokeColor(context, 0.0, 0.0, 0.0, 1.0);
-        CGContextMoveToPoint(context, x, 0);
-        CGContextAddLineToPoint(context, x, SPECHEIGHT);
-        CGContextStrokePath(context);
-        // linha azul
-        CGContextSetLineWidth(context, (SPECWIDTH/BANDS)-((SPECWIDTH/BANDS)*0.15));
-        CGContextSetRGBStrokeColor(context, 0.6, 0.7, 1.0, 1.0);
-        CGContextMoveToPoint(context, x, SPECHEIGHT);
-        CGContextAddLineToPoint(context, x, SPECHEIGHT - y);
+        x = x + self.frame.size.width/self.bands;
+
+        CGContextMoveToPoint(context, x, self.frame.size.height);
+        CGContextAddLineToPoint(context, x, self.frame.size.height - y);
         CGContextStrokePath(context);
     }
 }
-
 
 @end
