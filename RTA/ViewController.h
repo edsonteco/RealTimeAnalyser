@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Grafico.h"
+#import "GraficEq.h"
 #include "bass.h"
 
 @interface ViewController : UIViewController {
     DWORD chan;
 }
-@property (strong, nonatomic) Grafico *grafico;
+@property (strong, nonatomic) GraficEq *eq;
 @property (strong, nonatomic) NSTimer *timerUpdate;
 
 @end

@@ -22,7 +22,7 @@
 		C22729F8172590A500809A07 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C22729F7172590A500809A07 /* QuartzCore.framework */; };
 		C22729FA172590B300809A07 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C22729F9172590B300809A07 /* CoreMedia.framework */; };
 		C22729FC172590C500809A07 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C22729FB172590C500809A07 /* CoreAudio.framework */; };
-		C2272A041725BC9300809A07 /* Grafico.m in Sources */ = {isa = PBXBuildFile; fileRef = C2272A031725BC9300809A07 /* Grafico.m */; };
+		C2272A041725BC9300809A07 /* GraficEq.m in Sources */ = {isa = PBXBuildFile; fileRef = C2272A031725BC9300809A07 /* GraficEq.m */; };
 		C2272A061725C0CE00809A07 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2272A051725C0CE00809A07 /* AudioToolbox.framework */; };
 		C2272A081725C0D800809A07 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2272A071725C0D800809A07 /* SystemConfiguration.framework */; };
 		C2272A0A1725C0E700809A07 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2272A091725C0E600809A07 /* CFNetwork.framework */; };
@@ -51,8 +51,8 @@
 		C22729F7172590A500809A07 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		C22729F9172590B300809A07 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		C22729FB172590C500809A07 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
-		C2272A021725BC9300809A07 /* Grafico.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Grafico.h; sourceTree = "<group>"; };
-		C2272A031725BC9300809A07 /* Grafico.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Grafico.m; sourceTree = "<group>"; };
+		C2272A021725BC9300809A07 /* GraficEq.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraficEq.h; sourceTree = "<group>"; };
+		C2272A031725BC9300809A07 /* GraficEq.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraficEq.m; sourceTree = "<group>"; };
 		C2272A051725C0CE00809A07 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		C2272A071725C0D800809A07 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		C2272A091725C0E600809A07 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -126,8 +126,8 @@
 				C22729E717258FBE00809A07 /* ViewController.h */,
 				C22729E817258FBE00809A07 /* ViewController.m */,
 				C22729D317258FBE00809A07 /* Supporting Files */,
-				C2272A021725BC9300809A07 /* Grafico.h */,
-				C2272A031725BC9300809A07 /* Grafico.m */,
+				C2272A021725BC9300809A07 /* GraficEq.h */,
+				C2272A031725BC9300809A07 /* GraficEq.m */,
 			);
 			path = RTA;
 			sourceTree = "<group>";
@@ -215,7 +215,7 @@
 				C22729D917258FBE00809A07 /* main.m in Sources */,
 				C22729DD17258FBE00809A07 /* AppDelegate.m in Sources */,
 				C22729E917258FBE00809A07 /* ViewController.m in Sources */,
-				C2272A041725BC9300809A07 /* Grafico.m in Sources */,
+				C2272A041725BC9300809A07 /* GraficEq.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

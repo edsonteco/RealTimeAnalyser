@@ -12,7 +12,7 @@
 #define FFT_LENGTH 1024
 #define DEFAULT_BANDS 28
 
-@interface Grafico : UIView {
+@interface GraficEq : UIView {
     float fft[FFT_LENGTH];
 }
 @property (nonatomic) int bands;

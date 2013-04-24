@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 EdsonTeco. All rights reserved.
 //
 
-#import "Grafico.h"
+#import "GraficEq.h"
 
-@implementation Grafico
+@implementation GraficEq
 
 - (id)initWithFrame:(CGRect)frame
 {
